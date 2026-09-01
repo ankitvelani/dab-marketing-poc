@@ -37,7 +37,7 @@ jobs:
 
       - name: Run pytest
         run: |
-          pytest tests/ -v
+          pytest marketing/tests/ -v
 
       # Download the Databricks CLI.
       # See https://github.com/databricks/setup-cli
