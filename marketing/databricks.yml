@@ -16,7 +16,8 @@ variables:
 
 targets:
   dev:
-    mode: development
+    presets:
+      name_prefix: "dev_"
     default: true
     workspace:
       host: https://dbc-0744182d-1c29.cloud.databricks.com
