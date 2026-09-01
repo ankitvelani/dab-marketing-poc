@@ -3,6 +3,15 @@
 
 # COMMAND ----------
 
+# Set default catalog and schema
+catalog = dbutils.widgets.get("catalog")
+schema = dbutils.widgets.get("schema")
+spark.sql(f"USE CATALOG `{catalog}`")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS `{schema}`")
+spark.sql(f"USE SCHEMA `{schema}`")
+
+# COMMAND ----------
+
 GOOGLE_ADS_ENTITIES = ["google_ads__account_report",
                         "google_ads__campaign_report",
                         "google_ads__ad_group_report",
@@ -24,6 +33,6 @@ def build_entity_configs(dataset_name, entities: list[str], landing_root: str, c
         for e in entities
     ]
 
-configs  = build_entity_configs("Google_Ads", GOOGLE_ADS_ENTITIES, "/Volumes/source/raw/datasets/", "dev_marketing_intelligence.dev")
+configs  = build_entity_configs("Google_Ads", GOOGLE_ADS_ENTITIES, "/Volumes/source/raw/datasets/", f"{catalog}.{schema}")
 for cfg in configs:
     source_to_bronze(**cfg)

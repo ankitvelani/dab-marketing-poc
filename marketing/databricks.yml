@@ -23,7 +23,7 @@ targets:
       host: https://dbc-0744182d-1c29.cloud.databricks.com
     variables:
       catalog: dev_marketing_intelligence
-      schema: dev
+      schema: bronze
   prod:
     mode: production
     workspace:
@@ -32,7 +32,7 @@ targets:
       root_path: /Workspace/Users/ankit.velani@gmail.com/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog: prod_marketing_intelligence
-      schema: prod
+      schema: bronze
     permissions:
       - user_name: ankit.velani@gmail.com
         level: CAN_MANAGE
