@@ -2,14 +2,20 @@
 
 resources:
   jobs:
-    google_analtyics:
-      name: google_analtyics
+    google_analytics:
+      name: google_analytics
 
+      # trigger:
+      #   # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
+      #   periodic:
+      #     interval: 1
+      #     unit: DAYS
       trigger:
-        # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
-        periodic:
-          interval: 1
-          unit: DAYS
+        pause_status: UNPAUSED
+        file_arrival:
+          url: "/Volumes/source/raw/datasets/GoogleAnalytics/"
+          min_time_between_triggers_seconds: 120
+          wait_after_last_change_seconds: 300
 
       #email_notifications:
       #  on_failure:
@@ -30,3 +36,6 @@ resources:
         - environment_key: default
           spec:
             environment_version: "4"
+
+      tags:
+        source: "GA4_BRONZE"
