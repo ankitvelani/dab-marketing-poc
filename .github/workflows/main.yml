@@ -14,6 +14,7 @@ on:
       - main
     paths:
       - 'marketing/**'
+  workflow_dispatch:
 
 jobs:
   deploy:
