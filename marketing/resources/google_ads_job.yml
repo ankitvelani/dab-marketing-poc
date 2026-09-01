@@ -31,6 +31,9 @@ resources:
         - task_key: google_ads
           notebook_task:
             notebook_path: ../src/google_ads.py
+            base_parameters:
+              catalog: "{{job.parameters.catalog}}"
+              schema: "{{job.parameters.schema}}"
 
       environments:
         - environment_key: default

@@ -31,6 +31,9 @@ resources:
         - task_key: google_analytics
           notebook_task:
             notebook_path: ../src/google_analytics.py
+            base_parameters:
+              catalog: "{{job.parameters.catalog}}"
+              schema: "{{job.parameters.schema}}"
 
       environments:
         - environment_key: default
