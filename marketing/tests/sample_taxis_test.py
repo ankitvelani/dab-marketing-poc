@@ -1,8 +1,15 @@
-from databricks.sdk.runtime import spark
-from pyspark.sql import DataFrame
-from marketing import taxis
+import pytest
+@pytest.mark.great
+def test_greater():
+   num = 100
+   assert num > 100
 
+@pytest.mark.great
+def test_greater_equal():
+   num = 100
+   assert num >= 100
 
-def test_find_all_taxis():
-    results = taxis.find_all_taxis()
-    assert results.count() > 5
+@pytest.mark.others
+def test_less():
+   num = 100
+   assert num < 200
