@@ -13,7 +13,7 @@ resources:
       trigger:
         pause_status: UNPAUSED
         file_arrival:
-          url: "/Volumes/source/raw/datasets/Google_Ads/"
+          url: "/Volumes/source/raw/datasets/Google_Ads/google_ads__account_report/"
           min_time_between_triggers_seconds: 120
           wait_after_last_change_seconds: 300
 
@@ -29,11 +29,27 @@ resources:
 
       tasks:
         - task_key: google_ads
-          notebook_task:
-            notebook_path: ../src/google_ads.py
-            base_parameters:
-              catalog: "{{job.parameters.catalog}}"
-              schema: "{{job.parameters.schema}}"
+          for_each_task:
+
+            inputs: >-
+              ["google_ads__account_report",
+               "google_ads__campaign_report",
+               "google_ads__ad_group_report",
+               "google_ads__keyword_report",
+               "google_ads__ad_report",
+               "google_ads__search_term_report",
+               "google_ads__url_report"]
+            concurrency: 4
+            task:
+              task_key: google_ads_entity_ingest
+              notebook_task:
+                notebook_path: ../src/google_ads.py
+                base_parameters:
+                  catalog: "{{job.parameters.catalog}}"
+                  schema: "{{job.parameters.schema}}"
+                  entity: "{{input}}"
+              max_retries: 2
+              min_retry_interval_millis: 60000
 
       environments:
         - environment_key: default
