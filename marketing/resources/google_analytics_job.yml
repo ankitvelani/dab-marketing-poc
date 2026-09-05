@@ -30,7 +30,7 @@ resources:
       tasks:
         - task_key: google_analytics
           notebook_task:
-            notebook_path: ../src/google_analytics.py
+            notebook_path: ../src/google_analytics_to_bronze.py
             base_parameters:
               catalog: "{{job.parameters.catalog}}"
               schema: "{{job.parameters.schema}}"
