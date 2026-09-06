@@ -5,15 +5,15 @@ from pyspark.sql import SparkSession
 
 # COMMAND ----------
 
-def start_run(spark: SparkSession, catalog, pipeline_id, job_id, run_id, notebook_path) -> str:
+def start_run(spark: SparkSession, catalog, pipeline_id, job_id, run_id, notebook_path, job_name) -> str:
     """Insert a STARTED row, return the audit_id to pass through the rest of the run."""
     audit_id = str(uuid.uuid4())
     spark.sql(f"""
         INSERT INTO {catalog}.control_framework.audit_log
-        (audit_id, pipeline_config_id, job_id, run_id, notebook_path, start_ts, status,
+        (audit_id, pipeline_config_id, job_id, run_id, job_name, notebook_path, start_ts, status,
         created_ts)
         VALUES (
-            '{audit_id}', {f"'{pipeline_id}'"}, {f"'{job_id}'" if job_id else 'NULL'}, {f"'{run_id}'"}, {f"'{notebook_path}'"},
+            '{audit_id}', {f"'{pipeline_id}'"}, {f"'{job_id}'" if job_id else 'NULL'}, {f"'{run_id}'"}, {f"'{job_name}'"},{f"'{notebook_path}'"},
             '{datetime.utcnow().isoformat()}', 'STARTED', '{datetime.utcnow().isoformat()}'
         )
     """)

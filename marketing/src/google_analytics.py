@@ -3,7 +3,7 @@
 # [tool.databricks.environment]
 # environment_version = "5"
 # ///
-# MAGIC %run ../src/framework/autoloader
+# MAGIC %run ../src/framework/autoloader_v0
 
 # COMMAND ----------
 

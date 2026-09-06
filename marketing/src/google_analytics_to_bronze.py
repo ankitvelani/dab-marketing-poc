@@ -34,12 +34,19 @@ context = dbutils.notebook.entry_point.getDbutils().notebook().getContext()
 job_id = context.jobId().get() if context.jobId().isDefined() else None
 notebook_path = context.notebookPath().get()
 pipeline_id = f"{config.source_system}{config.source_dataset}{config.target_table}"
+
+try:
+    context = dbutils.notebook.entry_point.getDbutils().notebook().getContext()
+    job_name = context.tags().get("jobName").get() if context.tags().get("jobName").isDefined() else None
+except Exception:
+    job_name = None
+
 try:
     run_id = context.currentRunId().get()
 except:
     run_id = None
 
-audit_id = start_run(spark, catalog, pipeline_id, job_id, run_id, notebook_path)
+audit_id = start_run(spark, catalog, pipeline_id, job_id, run_id, notebook_path, job_name)
 
 # COMMAND ----------
 
