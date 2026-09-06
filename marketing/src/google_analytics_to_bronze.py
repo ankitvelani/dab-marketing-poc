@@ -15,6 +15,8 @@
 
 # COMMAND ----------
 
+import json
+
 # Set default catalog and schema
 catalog = dbutils.widgets.get("catalog")
 schema = dbutils.widgets.get("schema")
@@ -42,7 +44,9 @@ except Exception:
     job_name = None
 
 try:
-    run_id = context.currentRunId().get()
+    context_json = dbutils.notebook.entry_point.getDbutils().notebook().getContext().safeToJson()
+    context = json.loads(context_json)
+    run_id = context.get("tags", {}).get("runId") or context.get("currentRunId")
 except:
     run_id = None
 

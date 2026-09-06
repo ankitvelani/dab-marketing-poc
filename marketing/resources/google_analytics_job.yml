@@ -42,3 +42,4 @@ resources:
 
       tags:
         source: "GA4_BRONZE"
+        jobName: "Google Analytics Ingestion"
