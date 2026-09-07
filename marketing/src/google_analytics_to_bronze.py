@@ -46,7 +46,13 @@ except Exception:
 try:
     context_json = dbutils.notebook.entry_point.getDbutils().notebook().getContext().safeToJson()
     context = json.loads(context_json)
-    run_id = context.get("tags", {}).get("runId") or context.get("currentRunId")
+    
+    # Extract run IDs from the attributes object
+    attrs = context.get("attributes", {})
+    run_id = attrs.get("rootRunId") or None
+    current_run_id = attrs.get("currentRunId") or None
+
+    # run_id = context.get("tags", {}).get("runId") or context.get("currentRunId")
 except:
     run_id = None
 
