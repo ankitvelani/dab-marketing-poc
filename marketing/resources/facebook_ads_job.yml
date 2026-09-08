@@ -26,14 +26,21 @@ resources:
           default: ${var.catalog}
         - name: schema
           default: ${var.schema}
+        - name: datasets
+          default: '["facebook_ads__account_report", "facebook_ads__ad_report", "facebook_ads__ad_set_report", "facebook_ads__campaign_report", "facebook_ads__country_report"]'
 
       tasks:
         - task_key: facebook_ads
-          notebook_task:
-            notebook_path: ../src/facebook_ads.py
-            base_parameters:
-              catalog: "{{job.parameters.catalog}}"
-              schema: "{{job.parameters.schema}}"
+          for_each_task:
+            inputs: "{{job.parameters.datasets}}"
+            task:
+              task_key: facebook_ads_iteration
+              notebook_task:
+                notebook_path: ../src/facebook_ads_to_bronze.py
+                base_parameters:
+                  catalog: "{{job.parameters.catalog}}"
+                  schema: "{{job.parameters.schema}}"
+                  datasets: "{{input}}"
 
       environments:
         - environment_key: default

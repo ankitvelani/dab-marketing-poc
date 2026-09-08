@@ -9,8 +9,8 @@
 
 # DBTITLE 1,Cell 2
 # Set default catalog and schema
-catalog = dbutils.widgets.get("catalog")
-schema = dbutils.widgets.get("schema")
+catalog = "dev_marketing_intelligence" #dbutils.widgets.get("catalog")
+schema = "dev" #dbutils.widgets.get("schema")
 spark.sql(f"USE CATALOG `{catalog}`")
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS `{schema}`")
 spark.sql(f"USE SCHEMA `{schema}`")

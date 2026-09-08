@@ -32,6 +32,11 @@ spark.sql(f"""CREATE TABLE IF NOT EXISTS {catalog}.{schema}.pipeline_config (
 
 # COMMAND ----------
 
+# DBTITLE 1,TRUNCATE IF REQ
+spark.sql(f"""TRUNCATE TABLE {catalog}.{schema}.pipeline_config""")
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ### Pipeline Config Entry
 
@@ -121,6 +126,7 @@ def insert_pipeline_config(
             AND t.source_dataset = s.source_dataset
             AND t.pipeline_layer = s.pipeline_layer
             AND t.target_table = s.target_table
+            AND t.source_object_path = s.source_object_path
             WHEN NOT MATCHED THEN
                 INSERT (
                     source_system,

@@ -26,14 +26,21 @@ resources:
           default: ${var.catalog}
         - name: schema
           default: ${var.schema}
+        - name: datasets
+          default: '["google_ads__account_report", "google_ads__ad_group_report", "google_ads__ad_report", "google_ads__campaign_report", "google_ads__keyword_report", "google_ads__search_term_report", "google_ads__url_report"]'
 
       tasks:
         - task_key: google_ads
-          notebook_task:
-            notebook_path: ../src/google_ads.py
-            base_parameters:
-              catalog: "{{job.parameters.catalog}}"
-              schema: "{{job.parameters.schema}}"
+          for_each_task:
+            inputs: "{{job.parameters.datasets}}"
+            task:
+              task_key: google_ads_iteration
+              notebook_task:
+                notebook_path: ../src/google_ads_to_bronze.py
+                base_parameters:
+                  catalog: "{{job.parameters.catalog}}"
+                  schema: "{{job.parameters.schema}}"
+                  datasets: "{{input}}"
 
       environments:
         - environment_key: default
