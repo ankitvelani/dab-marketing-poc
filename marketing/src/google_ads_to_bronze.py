@@ -16,7 +16,7 @@ import json
 # Set default catalog and schema
 catalog = dbutils.widgets.get("catalog")
 schema = dbutils.widgets.get("schema")
-datasets = dbutils.widgets.get("schema")
+datasets = dbutils.widgets.get("datasets")
 
 
 spark.sql(f"USE CATALOG `{catalog}`")
@@ -28,6 +28,10 @@ volume = "data_storage"
 spark.sql(f"CREATE VOLUME IF NOT EXISTS `{catalog}`.`{schema}`.`{volume}`")
 
 
+
+# COMMAND ----------
+
+print(datasets)
 
 # COMMAND ----------
 
