@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "5"
+# ///
 # MAGIC %run ./abc_framework/control
 
 # COMMAND ----------
@@ -14,9 +18,9 @@
 import json
 
 # Set default catalog and schema
-catalog = dbutils.widgets.get("catalog")
-schema = dbutils.widgets.get("schema")
-datasets = dbutils.widgets.get("datasets")
+catalog = "dev_marketing_intelligence" #dbutils.widgets.get("catalog")
+schema = "bronze" #dbutils.widgets.get("schema")
+datasets = "GoogleAnalytics" #dbutils.widgets.get("datasets")
 
 
 spark.sql(f"USE CATALOG `{catalog}`")
@@ -26,12 +30,6 @@ spark.sql(f"USE SCHEMA `{schema}`")
 # Create volume if not exists
 volume = "data_storage"
 spark.sql(f"CREATE VOLUME IF NOT EXISTS `{catalog}`.`{schema}`.`{volume}`")
-
-
-
-# COMMAND ----------
-
-print(datasets)
 
 # COMMAND ----------
 

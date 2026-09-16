@@ -183,7 +183,7 @@ def insert_pipeline_config(
 # DBTITLE 1,Google Analytics
 insert_pipeline_config(source_system="GOOGLE_ANALYTICS",
                        source_dataset="GoogleAnalytics",
-                       source_object_path="/Volumes/source/raw/datasets/GoogleAnalytics/",
+                       source_object_path="abfss://landing@devpaidstorage.dfs.core.windows.net/source/GoogleAnalytics/",
                        pipeline_layer="BRONZE",
                        target_table="google_analytics_events",
                        source_file_format="csv",
@@ -197,189 +197,189 @@ insert_pipeline_config(source_system="GOOGLE_ANALYTICS",
 # COMMAND ----------
 
 # DBTITLE 1,Google Ads
-#1
-dataset_name = "google_ads__account_report"
-insert_pipeline_config(source_system="GOOGLE_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #1
+# dataset_name = "google_ads__account_report"
+# insert_pipeline_config(source_system="GOOGLE_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#2 
-dataset_name = "google_ads__ad_group_report"
-insert_pipeline_config(source_system="GOOGLE_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #2 
+# dataset_name = "google_ads__ad_group_report"
+# insert_pipeline_config(source_system="GOOGLE_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#3
-dataset_name = "google_ads__ad_report"
-insert_pipeline_config(source_system="GOOGLE_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #3
+# dataset_name = "google_ads__ad_report"
+# insert_pipeline_config(source_system="GOOGLE_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#4
-dataset_name = "google_ads__campaign_report"
-insert_pipeline_config(source_system="GOOGLE_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #4
+# dataset_name = "google_ads__campaign_report"
+# insert_pipeline_config(source_system="GOOGLE_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#5
-dataset_name = "google_ads__keyword_report"
-insert_pipeline_config(source_system="GOOGLE_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #5
+# dataset_name = "google_ads__keyword_report"
+# insert_pipeline_config(source_system="GOOGLE_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#6
-dataset_name = "google_ads__search_term_report"
-insert_pipeline_config(source_system="GOOGLE_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #6
+# dataset_name = "google_ads__search_term_report"
+# insert_pipeline_config(source_system="GOOGLE_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#7
-dataset_name = "google_ads__url_report"
-insert_pipeline_config(source_system="GOOGLE_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #7
+# dataset_name = "google_ads__url_report"
+# insert_pipeline_config(source_system="GOOGLE_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Google_Ads/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
 
 # COMMAND ----------
 
 # DBTITLE 1,Facebook
-#1
-dataset_name = "facebook_ads__account_report"
-insert_pipeline_config(source_system="FACEBOOK_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #1
+# dataset_name = "facebook_ads__account_report"
+# insert_pipeline_config(source_system="FACEBOOK_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#2
-dataset_name = "facebook_ads__ad_report"
-insert_pipeline_config(source_system="FACEBOOK_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #2
+# dataset_name = "facebook_ads__ad_report"
+# insert_pipeline_config(source_system="FACEBOOK_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#3
-dataset_name = "facebook_ads__ad_set_report"
-insert_pipeline_config(source_system="FACEBOOK_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #3
+# dataset_name = "facebook_ads__ad_set_report"
+# insert_pipeline_config(source_system="FACEBOOK_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#4
-dataset_name = "facebook_ads__campaign_report"
-insert_pipeline_config(source_system="FACEBOOK_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #4
+# dataset_name = "facebook_ads__campaign_report"
+# insert_pipeline_config(source_system="FACEBOOK_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
-#5
-dataset_name = "facebook_ads__country_report"
-insert_pipeline_config(source_system="FACEBOOK_ADS",
-                       source_dataset=f"{dataset_name}",
-                       source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
-                       pipeline_layer="BRONZE",
-                       target_table=f"{dataset_name}",
-                       source_file_format="csv",
-                       balance_type="ROW_COUNT",
-                       balance_column=None,
-                       balance_filter_column=None,
-                       balance_threshold_pct=0,
-                       is_active=True
-                       )
+# #5
+# dataset_name = "facebook_ads__country_report"
+# insert_pipeline_config(source_system="FACEBOOK_ADS",
+#                        source_dataset=f"{dataset_name}",
+#                        source_object_path=f"/Volumes/source/raw/datasets/Facebook/{dataset_name}",
+#                        pipeline_layer="BRONZE",
+#                        target_table=f"{dataset_name}",
+#                        source_file_format="csv",
+#                        balance_type="ROW_COUNT",
+#                        balance_column=None,
+#                        balance_filter_column=None,
+#                        balance_threshold_pct=0,
+#                        is_active=True
+#                        )
 
 
 
@@ -421,3 +421,6 @@ spark.sql(f"""CREATE TABLE IF NOT EXISTS {catalog}.{schema}.balance_log (
 )
 USING DELTA
 """)
+
+# COMMAND ----------
+

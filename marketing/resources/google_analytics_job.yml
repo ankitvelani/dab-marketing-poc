@@ -5,21 +5,14 @@ resources:
     google_analytics:
       name: google_analytics
 
-      # trigger:
-      #   # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
-      #   periodic:
-      #     interval: 1
-      #     unit: DAYS
-      trigger:
+      schedule:
+        quartz_cron_expression: 47 0 1 * * ?
+        timezone_id: Asia/Calcutta
         pause_status: UNPAUSED
-        file_arrival:
-          url: "/Volumes/source/raw/datasets/GoogleAnalytics/"
-          min_time_between_triggers_seconds: 120
-          wait_after_last_change_seconds: 300
 
-      #email_notifications:
-      #  on_failure:
-      #    - your_email@example.com
+      email_notifications:
+       on_failure:
+         - ankit.velani@gmail.com
 
       parameters:
         - name: catalog
