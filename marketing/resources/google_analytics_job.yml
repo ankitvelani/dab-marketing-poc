@@ -5,10 +5,10 @@ resources:
     google_analytics:
       name: google_analytics
 
-      schedule:
-        quartz_cron_expression: 47 0 1 * * ?
-        timezone_id: Asia/Calcutta
-        pause_status: UNPAUSED
+      # schedule:
+      #   quartz_cron_expression: 47 0 1 * * ?
+      #   timezone_id: Asia/Calcutta
+      #   pause_status: UNPAUSED
 
       email_notifications:
        on_failure:
